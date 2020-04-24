@@ -3,18 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "query-string": "^6.12.1",
     "react": "^16.13.1",
+    "react-adsense": "^0.1.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-feather": "^2.0.4",
+    "react-lottie": "^1.2.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-spring": "^8.0.27",
+    "sharethis-reactjs": "^1.5.0"
   },
+  "homepage": "https://syedzubairahmed001.github.io/ramadan-wish",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
