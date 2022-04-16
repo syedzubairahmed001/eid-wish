@@ -18,10 +18,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <Wish />
       <footer
-        style={{ textAlign: "center", fontSize: "10px", padding: "10px" }}
+        style={{
+          textAlign: "center",
+          fontSize: "10px",
+          padding: "10px",
+          color: "rgba(255,255,255,0.4)",
+        }}
       >
-        created with <Heart size={10} strokeWidth={0} fill="#e74c3c" /> by{" "}
-        <a href="https://github.com/syedzubairahmed001">Syed Zubair Ahmed</a>
+        Created with <Heart size={10} strokeWidth={0} fill="#e74c3c" /> By <a href="https://twitter.com/zubairself" noopener noreferrer>Zubair</a>
       </footer>
     </ThemeProvider>
   );

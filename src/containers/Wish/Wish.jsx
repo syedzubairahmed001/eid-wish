@@ -17,8 +17,8 @@ import Lottie from "react-lottie";
 import queryString from "query-string";
 import { InlineShareButtons } from "sharethis-reactjs";
 
-import starEmoji from "../../assets/lottiefiles/star-emoji.json";
-import celebration from "../../assets/lottiefiles/celebration.json";
+import moonAnimation from "../../assets/lottiefiles/moon.json";
+import EidAnimation from "../../assets/lottiefiles/eidMubarak.json";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -29,13 +29,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     flexDirection: "column",
   },
-  heading: {
+  from: {
     fontFamily: " 'Raleway', sans-serif ",
     textTransform: "capitalize",
+    color: "#fcd48f",
   },
-  wish: {
+  wisherName: {
+    textShadow: "1px 1px 10px rgba(252, 212, 143, 0.295)",
     fontFamily: "'Dancing Script', 'Raleway', sans-serif ",
     textAlign: "center",
+  },
+  button: {
+    backgroundColor: "#0c232b",
   },
 }));
 
@@ -45,18 +50,18 @@ const Wish = (props) => {
   const [name, setName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [isShare, setShare] = useState(null);
-  const starEmojiConfig = {
+  const moonConfig = {
     loop: true,
     autoplay: true,
-    animationData: starEmoji,
+    animationData: moonAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  const celebrationConfig = {
-    loop: true,
+  const eidConfig = {
+    loop: false,
     autoplay: true,
-    animationData: celebration,
+    animationData: EidAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -75,52 +80,45 @@ const Wish = (props) => {
   }, []);
   return (
     <Box className={classes.container}>
-      <Box>
+      <Box mb={2}>
         <Lottie
-          options={celebrationConfig}
-          style={{
-            display: "inline-block",
-            position: "absolute",
-            top: "0",
-            left: "0",
-            width: "100%",
-            height: "100vh",
-          }}
+          options={eidConfig}
+          height={300}
+          width={300}
+          style={{ display: "inline-block" }}
         />
-      </Box>
-      <Box mb={1}>
-        <Typography variant="h2" className={classes.heading}>
+        <Typography className={classes.from + " animatedFrom "} align="center">
+          From
+        </Typography>
+        <Typography
+          className={classes.wisherName + " animamteName"}
+          align="center"
+          variant="h4"
+        >
           {name}
         </Typography>
+        <Box mt={1} className={"animatedBody"}>
+          <Typography
+            style={{
+              color: "rgb(252, 212, 143, 0.6)",
+              fontFamily: "'Dancing Script', 'Raleway', sans-serif ",
+            }}
+            align="center"
+            variant="body1"
+          >
+            May Allah bless you and your family.
+          </Typography>
+        </Box>
       </Box>
-      <Box mb={1}>
-        <Typography variant="h5" className={classes.wish}>
-          wishes you
-        </Typography>
-      </Box>
-      <Box mb={1}>
-        <Typography variant="h2" className={classes.wish}>
-          A very happy Ramadan
-          <Lottie
-            options={starEmojiConfig}
-            height={50}
-            width={50}
-            style={{ display: "inline-block" }}
-          />
-        </Typography>
-      </Box>
-      <Box mb={2}>
-        <Typography variant="h5" className={classes.wish} color="textSecondary">
-          This ramadan lets stay at home, may allah bless you all!
-        </Typography>
-      </Box>
+
       <Button
-        color="primary"
+        color="secondary"
         variant="contained"
         onClick={handleClickOpen}
+        className={classes.button + " animatedButton"}
         disableElevation
       >
-        Create mine
+        Edit this
       </Button>
       <Dialog
         open={modalOpen}
@@ -128,17 +126,15 @@ const Wish = (props) => {
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">
-          Create Ramadan Greeting
+          <Typography color="primary">Create Greeting</Typography>
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Share Ramadan greetings to your loved once
-          </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
+            color="primary"
             id="name"
-            label="Yout Name"
+            label="Your Name"
             value={name === "Your Name" ? "" : name}
             onChange={(e) => {
               const v = e.target.value;
@@ -184,7 +180,9 @@ const Wish = (props) => {
               radius: 4, // the corner radius on each button (INTEGER)
               show_total: true,
               size: 40, // the size of each button (INTEGER)
-              url: `https://surprise.zubs.xyz?from=${name}`,
+              url: `https://surprise.zubs.xyz/?from=${name
+                .split(" ")
+                .join("%20")}`,
               // OPTIONAL PARAMETERS
               description: `${name} has sent you a surprise, click the link to open`, // (defaults to og:description or twitter:description)
               title: "Surprice", // (defaults to og:title or twitter:title)

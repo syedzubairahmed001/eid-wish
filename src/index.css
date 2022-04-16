@@ -5,9 +5,51 @@ body {
   font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0f303b;
+  color: rgb(252, 212, 143);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.animatedFrom {
+  animation-name: fromAnimated;
+  animation-duration: .3s;
+  animation-delay: 3s;
+  animation-fill-mode: both;
+}
+.animamteName{
+  animation-name: fromAnimated;
+  animation-duration: .5s;
+  animation-delay: 3.5s;
+  animation-fill-mode: both;
+  
+}
+
+.animatedBody{
+  animation-name: fromAnimated;
+  animation-duration: .3s;
+  animation-delay: 3.7s;
+  animation-fill-mode: both;
+
+}
+.animatedButton{
+  animation-name: fromAnimated;
+  animation-duration: 0.3.4s;
+  animation-delay: 5s;
+  animation-fill-mode: both;
+
+}
+
+@keyframes fromAnimated {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
