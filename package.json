@@ -18,7 +18,7 @@
     "react-spring": "^8.0.27",
     "sharethis-reactjs": "^1.5.0"
   },
-  "homepage": "https://eidwish.zubs.xyz",
+  "homepage": "https://syedzubairahmed001.github.io/eid-wish",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

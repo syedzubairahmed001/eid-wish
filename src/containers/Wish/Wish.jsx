@@ -180,7 +180,7 @@ const Wish = (props) => {
               radius: 4, // the corner radius on each button (INTEGER)
               show_total: true,
               size: 40, // the size of each button (INTEGER)
-              url: `https://surprise.zubs.xyz/?from=${name
+              url: `https://eidwish.zubs.xyz/?from=${name
                 .split(" ")
                 .join("%20")}`,
               // OPTIONAL PARAMETERS
