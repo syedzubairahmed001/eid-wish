@@ -26,6 +26,9 @@ function App() {
         }}
       >
         Created with <Heart size={10} strokeWidth={0} fill="#e74c3c" /> By <a href="https://twitter.com/zubairself" noopener noreferrer>Zubair</a>
+        <div style={{ display: 'flex', alignItems: "center", justifyContent: "center" }}>
+          <a class="github-button" href="https://github.com/syedzubairahmed001/eid-wish" noopener noreferrer data-color-scheme="no-preference: light; light: dark_high_contrast; dark: dark;" data-size="large" data-show-count="true" aria-label="Star syedzubairahmed001/eid-wish on GitHub">Star</a>
+        </div>
       </footer>
     </ThemeProvider>
   );
