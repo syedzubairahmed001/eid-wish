@@ -185,9 +185,9 @@ const Wish = (props) => {
                 .join("%20")}`,
               // OPTIONAL PARAMETERS
               description: `${name} has sent you a surprise, click the link to open`, // (defaults to og:description or twitter:description)
-              title: "Surprice", // (defaults to og:title or twitter:title)
-              message: "Surprise", // (only for email sharing)
-              subject: "Surprise", // (only for email sharing)
+              title: "Happy Eid", // (defaults to og:title or twitter:title)
+              message: "A sweet Eid greeting", // (only for email sharing)
+              subject: "Happy Eid", // (only for email sharing)
             }}
           />
         )}
