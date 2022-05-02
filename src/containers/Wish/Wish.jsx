@@ -16,13 +16,14 @@ import { useLocation } from "react-router-dom";
 import Lottie from "react-lottie";
 import queryString from "query-string";
 import { InlineShareButtons } from "sharethis-reactjs";
-
-import moonAnimation from "../../assets/lottiefiles/moon.json";
-import EidAnimation from "../../assets/lottiefiles/eidMubarak.json";
-
+import DropDown from "./DropDown";
+import lotties from "../../assets/lottiefiles/lottieTypes";
+import myStore from "../../stores/myStore";
+import { changeIndex } from "../../actions/changeIndexAction";
 const useStyles = makeStyles((theme) => ({
   container: {
     minHeight: "100vh",
+    maxHeight: "100%",
     // backgroundColor: "",
     display: "flex",
     alignItems: "center",
@@ -50,22 +51,8 @@ const Wish = (props) => {
   const [name, setName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [isShare, setShare] = useState(null);
-  const moonConfig = {
-    loop: true,
-    autoplay: true,
-    animationData: moonAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-  const eidConfig = {
-    loop: false,
-    autoplay: true,
-    animationData: EidAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  const [currentLottie,setCurrentLottie]=useState(0);
+  
   const handleClickOpen = () => {
     setModalOpen(true);
   };
@@ -77,12 +64,23 @@ const Wish = (props) => {
     console.log(loc);
     const values = queryString.parse(loc.search);
     setName(values.from || "Your Name");
+    myStore.addChangeListener(onChange);
+        if (myStore.getIndex === undefined) changeIndex(0);
+        return () => myStore.removeChangeListener(onChange);
   }, []);
+  function onChange(){
+    setCurrentLottie(myStore.getIndex);
+  }
+
   return (
+    
     <Box className={classes.container}>
-      <Box mb={2}>
+      <Box height={50} width={50} mb={20} sx={{alignSelf:"start"}}>
+      <DropDown />
+      </Box>
+      <Box mb={2} >
         <Lottie
-          options={eidConfig}
+          options={lotties[currentLottie].animationConfig}
           height={300}
           width={300}
           style={{ display: "inline-block" }}
